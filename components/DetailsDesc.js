@@ -1,12 +1,13 @@
+import React, { useState } from "react";
 import { View, Text } from "react-native";
-import React from "react";
-import { useState } from "react";
+
 import { EthPrice, NFTTitle } from "./SubInfo";
 import { COLORS, SIZES, FONTS } from "../constants";
 
 const DetailsDesc = ({ data }) => {
   const [text, setText] = useState(data.description.slice(0, 100));
   const [readMore, setReadMore] = useState(false);
+
   return (
     <>
       <View
@@ -23,13 +24,11 @@ const DetailsDesc = ({ data }) => {
           titleSize={SIZES.extraLarge}
           subTitleSize={SIZES.font}
         />
+
         <EthPrice price={data.price} />
       </View>
-      <View
-        style={{
-          marginVertical: SIZES.extraLarge * 1.5,
-        }}
-      >
+
+      <View style={{ marginVertical: SIZES.extraLarge * 1.5 }}>
         <Text
           style={{
             fontSize: SIZES.font,
@@ -46,9 +45,9 @@ const DetailsDesc = ({ data }) => {
         >
           <Text
             style={{
+              color: COLORS.secondary,
               fontSize: SIZES.small,
               fontFamily: FONTS.regular,
-              color: COLORS.secondary,
               lineHeight: SIZES.large,
             }}
           >
@@ -56,9 +55,9 @@ const DetailsDesc = ({ data }) => {
             {!readMore && "..."}
             <Text
               style={{
+                color: COLORS.primary,
                 fontSize: SIZES.small,
                 fontFamily: FONTS.semiBold,
-                color: COLORS.primary,
               }}
               onPress={() => {
                 if (!readMore) {
@@ -70,7 +69,7 @@ const DetailsDesc = ({ data }) => {
                 }
               }}
             >
-              {readMore ? "Show Less" : "Read More"}
+              {readMore ? " Show Less" : " Read More"}
             </Text>
           </Text>
         </View>

@@ -1,5 +1,6 @@
-import { View, Text, Image } from "react-native";
 import React from "react";
+import { View, Image, Text } from "react-native";
+
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
 export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
@@ -14,7 +15,6 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
       >
         {title}
       </Text>
-
       <Text
         style={{
           fontFamily: FONTS.regular,
@@ -22,7 +22,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
           color: COLORS.primary,
         }}
       >
-        {subTitle}
+        by {subTitle}
       </Text>
     </View>
   );
@@ -30,12 +30,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
 
 export const EthPrice = ({ price }) => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
+    <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Image
         source={assets.eth}
         resizeMode="contain"
@@ -54,7 +49,7 @@ export const EthPrice = ({ price }) => {
   );
 };
 
-export const ImageCmp = ({ imgUrl, index }) => {
+const ImageCmp = ({ imgUrl, index }) => {
   return (
     <Image
       source={imgUrl}
@@ -70,11 +65,7 @@ export const ImageCmp = ({ imgUrl, index }) => {
 
 export const People = () => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-      }}
-    >
+    <View style={{ flexDirection: "row" }}>
       {[assets.person02, assets.person03, assets.person04].map(
         (imgUrl, index) => (
           <ImageCmp imgUrl={imgUrl} index={index} key={`People-${index}`} />
@@ -91,6 +82,7 @@ export const EndDate = () => {
         paddingHorizontal: SIZES.font,
         paddingVertical: SIZES.base,
         backgroundColor: COLORS.white,
+        borderRadius: SIZES.font,
         justifyContent: "center",
         alignItems: "center",
         ...SHADOWS.light,
@@ -107,7 +99,6 @@ export const EndDate = () => {
       >
         Ending in
       </Text>
-
       <Text
         style={{
           fontFamily: FONTS.semiBold,
@@ -115,7 +106,7 @@ export const EndDate = () => {
           color: COLORS.primary,
         }}
       >
-        Ending in
+        12h 30m
       </Text>
     </View>
   );

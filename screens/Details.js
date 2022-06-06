@@ -1,21 +1,8 @@
 import React from "react";
-import {
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  StatusBar,
-  FlatList,
-} from "react-native";
-import { COLORS, FONTS, SIZES, assets, SHADOWS } from "../constants";
-import {
-  CircleButton,
-  RectButton,
-  SubInfo,
-  FocusedStatusBar,
-  DetailsDesc,
-} from "../components";
-import DetailsBid from "../components/DetailsBid";
+import { View, Text, SafeAreaView, Image, StatusBar, FlatList } from "react-native";
+
+import { COLORS, SIZES, assets, SHADOWS, FONTS } from "../constants";
+import { CircleButton, RectButton, SubInfo, DetailsDesc, DetailsBid, FocusedStatusBar } from "../components";
 
 const DetailsHeader = ({ data, navigation }) => (
   <View style={{ width: "100%", height: 373 }}>
@@ -42,14 +29,15 @@ const DetailsHeader = ({ data, navigation }) => (
 
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <FocusedStatusBar
-        style={{ flex: 1 }}
         barStyle="dark-content"
         backgroundColor="transparent"
         translucent={true}
       />
+
       <View
         style={{
           width: "100%",
@@ -58,7 +46,7 @@ const Details = ({ route, navigation }) => {
           paddingVertical: SIZES.font,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "rgba(255,255, 255,0.5)",
+          backgroundColor: "rgba(255,255,255,0.5)",
           zIndex: 1,
         }}
       >
